@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMCOE Timetable</title>
+
+    <style>
+        /* ===== Page Background ===== */
+        body {
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            background: linear-gradient(135deg, #003366, #0055a5);
+            min-height: 100vh;
+        }
+
+        /* ===== Logo ===== */
+        img {
+            margin-top: 15px;
+        }
+
+        /* ===== Navigation Links ===== */
+        .nav-links {
+            margin-top: 10px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            margin: 0 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #ffd166;
+        }
+
+        /* ===== Main Heading ===== */
+        h1 {
+            color: white;
+            margin-top: 25px;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* ===== Grid Container ===== */
+        .grid-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        /* ===== Year Cards ===== */
+        .year-card {
+            background: white;
+            border-radius: 12px;
+            width: 220px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            transition: 0.25s ease;
+        }
+
+        /* Hover lift effect */
+        .year-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+        }
+
+        /* ===== Card Heading ===== */
+        .year-card h2 {
+            margin-top: 0;
+            color: #003366;
+            font-size: 1.2rem;
+        }
+
+        /* ===== Division Links ===== */
+        .year-card a {
+            display: block;
+            text-decoration: none;
+            background: #f1f5f9;
+            color: #003366;
+            margin: 10px 0;
+            padding: 8px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .year-card a:hover {
+            background: #003366;
+            color: white;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 600px) {
+            .grid-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+<a href="Home Page.html">
+    <img src="mmcoelogo.png" width="120" alt="Logo">
+</a>
+
+<div class="nav-links">
+    <br>
+    <a href="Login.html">Login</a> |
+    <a href="signup.html">Signup</a>
+</div>
+
+<h1>MMCOE Computer Department Timetable</h1>
+
+<div class="grid-container">
+
+    <div class="year-card">
+        <h2>First Year (FE)</h2>
+        <a href="#">FY1</a>
+        <a href="#">FY2</a>
+    </div>
+
+    <div class="year-card">
+        <h2>Second Year (SE)</h2>
+        <a href="Timetable.html">SY1</a>
+        <a href="#">SY2</a>
+    </div>
+
+    <div class="year-card">
+        <h2>Third Year (TE)</h2>
+        <a href="#">TY1</a>
+        <a href="#">TY2</a>
+    </div>
+
+    <div class="year-card">
+        <h2>Final Year (BE)</h2>
+        <a href="#">BY1</a>
+        <a href="#">BY2</a>
+    </div>
+
+</div>
+
+</body>
+</html>

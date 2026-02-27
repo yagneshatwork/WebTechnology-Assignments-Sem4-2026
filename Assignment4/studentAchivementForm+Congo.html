@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CSI MMCOE | Achievement Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body { background-color: #f0f2f5; font-family: 'Inter', sans-serif; }
+        .main-container { min-height: 100vh; display: flex; align-items: center; }
+
+        /* Form Card */
+        .achievement-card { border: none; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .form-label { font-weight: 600; font-size: 0.8rem; color: #6c757d; text-transform: uppercase; }
+
+        /* Social Media Post Styling */
+        .insta-post {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 1px solid #e1e1e1;
+            max-width: 450px;
+            margin: auto;
+        }
+        .post-header { padding: 15px; display: flex; align-items: center; }
+        .profile-pic { width: 40px; height: 40px; background: #0d6efd; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 12px; }
+
+        .post-content {
+            background: linear-gradient(45deg, #1e1e2f, #0d6efd);
+            color: white;
+            aspect-ratio: 1/1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+        .post-content h2 { font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+        .event-tag { background: #ffc107; color: #000; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9rem; margin-top: 15px; }
+
+        .post-footer { padding: 15px; font-size: 0.9rem; }
+        .post-actions { font-size: 1.4rem; margin-bottom: 8px; color: #444; }
+        .post-actions i { margin-right: 15px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<div class="container main-container py-5">
+    <div class="row g-5 align-items-center">
+
+        <div class="col-lg-6">
+            <div class="card achievement-card p-4">
+                <h3 class="fw-bold mb-4 text-dark">Submit Achievement</h3>
+                <form id="achievementForm">
+                    <div class="row g-3">
+
+                        <div class="col-md-12">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" id="inName" class="form-control" placeholder="Enter name for the post" required>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Event Name</label>
+                            <input type="text" id="inEvent" class="form-control" placeholder="e.g. Code Mania 6.0" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Branch</label>
+                            <input type="text" id="inBranch" class="form-control" placeholder="e.g. Computer Engg" required>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label class="form-label">Year</label>
+                            <select class="form-select" id="inYear">
+                                <option>FE</option><option>SE</option><option>TE</option><option>BE</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label class="form-label">Roll No</label>
+                            <input type="text" class="form-control" placeholder="101" required>
+                        </div>
+
+                        <div class="col-md-12 mt-3">
+                            <label class="form-label">Certificate Upload</label>
+                            <input type="file" class="form-control" accept="image/*,.pdf" required>
+                        </div>
+
+                        <div class="col-12 mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg w-100 rounded-3 shadow-sm">Submit & Post</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="text-center mb-3">
+                <span class="badge bg-secondary opacity-50">LIVE PREVIEW</span>
+            </div>
+
+            <div class="insta-post">
+                <div class="post-header">
+                    <div class="profile-pic" id="pPic">C</div>
+                    <div>
+                        <div class="fw-bold mb-0" style="font-size: 0.9rem;" id="outName">Student Name</div>
+                        <div class="text-muted" style="font-size: 0.75rem;" id="outSub">Branch • Year</div>
+                    </div>
+                    <i class="bi bi-three-dots ms-auto"></i>
+                </div>
+
+                <div class="post-content">
+                    <i class="bi bi-patch-check-fill position-absolute top-0 start-0 m-3 fs-3 text-warning"></i>
+                    <p class="mb-1 small text-uppercase" style="letter-spacing: 2px;">Recognition of</p>
+                    <h2 id="dispName">STUDENT NAME</h2>
+                    <div class="event-tag" id="dispEvent">EVENT NAME</div>
+                    <p class="mt-4 small opacity-75">Marathwada Mitra Mandal's<br>College of Engineering, Pune</p>
+                </div>
+
+                <div class="post-footer">
+                    <div class="post-actions">
+                        <i class="bi bi-heart"></i>
+                        <i class="bi bi-chat"></i>
+                        <i class="bi bi-send"></i>
+                        <i class="bi bi-bookmark float-end"></i>
+                    </div>
+                    <div class="fw-bold mb-1">CSI MMCOE and others</div>
+                    <div><span class="fw-bold">csi.mmcoe</span> Huge congratulations to our student for this incredible feat! 🚀 #ProudMoment #MMCOE #Success</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const inName = document.getElementById('inName');
+    const inEvent = document.getElementById('inEvent');
+    const inBranch = document.getElementById('inBranch');
+    const inYear = document.getElementById('inYear');
+
+    const outName = document.getElementById('outName');
+    const dispName = document.getElementById('dispName');
+    const dispEvent = document.getElementById('dispEvent');
+    const outSub = document.getElementById('outSub');
+    const pPic = document.getElementById('pPic');
+
+    // Live Preview Logic
+    function updatePreview() {
+        outName.innerText = inName.value || "Student Name";
+        dispName.innerText = (inName.value || "Student Name").toUpperCase();
+        dispEvent.innerText = (inEvent.value || "Event Name").toUpperCase();
+        outSub.innerText = `${inBranch.value || 'Branch'} • ${inYear.value}`;
+        pPic.innerText = inName.value ? inName.value.charAt(0).toUpperCase() : "C";
+    }
+
+    inName.addEventListener('input', updatePreview);
+    inEvent.addEventListener('input', updatePreview);
+    inBranch.addEventListener('input', updatePreview);
+    inYear.addEventListener('change', updatePreview);
+
+    document.getElementById('achievementForm').onsubmit = function(e) {
+        e.preventDefault();
+        alert("Achievement posted to the portal successfully!");
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+
+  <style>
+    /* ===== Page Background ===== */
+    body {
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(135deg, #003366, #0055a5);
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    /* ===== Logo spacing ===== */
+    img {
+      margin-top: 10px;
+    }
+
+    /* ===== Title ===== */
+    h3 {
+      color: white;
+      margin-top: 10px;
+      font-size: 1.6rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* ===== Form Card ===== */
+    form {
+      background: white;
+      border-radius: 12px;
+      display: inline-block;
+      text-align: left;
+      padding: 35px;
+      width: 320px;
+      margin-top: 25px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    /* ===== Labels ===== */
+    label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #003366;
+    }
+
+    /* ===== Inputs ===== */
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 6px 0 16px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      transition: 0.2s ease;
+    }
+
+    /* Focus glow */
+    input:focus {
+      outline: none;
+      border-color: #0055a5;
+      box-shadow: 0 0 5px rgba(0, 85, 165, 0.4);
+    }
+
+    /* ===== Button ===== */
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #003366;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: 0.25s ease;
+    }
+
+    button:hover {
+      background: #0055a5;
+      transform: translateY(-2px);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+  </style>
+
+
+</head>
+<body>
+
+<a href="Home Page.html">
+  <img src="mmcoelogo.png" width="100" alt="Logo">
+</a>
+
+<h3>Create an Account</h3>
+
+<form>
+
+  <label for="name">Name</label><br>
+  <input type="text" id="name" name="name" placeholder="Full Name" required><br>
+
+  <label for="email">Email Address</label><br>
+  <input type="email" id="email" name="email" placeholder="name@company.com" required><br>
+
+  <label for="password">Password</label><br>
+  <input type="password" id="password" name="password" placeholder="••••••••" required><br>
+
+  <label for="confirm_password">Confirm Password</label><br>
+  <input type="password" id="confirm_password" name="confirm_password" placeholder="••••••••" required><br>
+
+  <button type="submit">Sign Up</button>
+
+</form>
+
+</body>
+</html>

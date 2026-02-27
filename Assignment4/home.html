@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MMCOE | Computer Department Hub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #0d6efd 0%, #084298 100%);
+            color: white;
+            padding: 80px 0;
+        }
+        .card {
+            border: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        }
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            border: none;
+        }
+        .carousel-item img {
+            height: 450px;
+            object-fit: cover;
+        }
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .logo-box {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">MMCOE COMP</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Clubs</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Events</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Student Portal</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="hero-section mb-5 shadow">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold">Department of Computer Engineering</h1>
+        <p class="lead opacity-75">Marathwada Mitra Mandal's College of Engineering, Pune</p>
+        
+        <div class="d-flex justify-content-center gap-3 mt-4">
+            <button class="btn btn-light px-4 shadow-sm">Upcoming Events</button>
+            <button class="btn btn-outline-light px-4">Download Syllabus</button>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    
+    <div class="d-flex flex-column flex-lg-row justify-content-between align-items-center bg-white p-3 rounded shadow-sm mb-5">
+        <div class="container-fluid py-2">
+            <div class="row text-center fw-semibold text-secondary">
+              <div class="col border-end text-primary">Technical</div>
+              <div class="col border-end text-danger">Cultural</div>
+              <div class="col border-end text-success">Social</div>
+              <div class="col text-warning">Innovation</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="mainCarousel" class="carousel slide mb-5 rounded-4 shadow-sm overflow-hidden" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200" class="d-block w-100" alt="Hackathon">
+                <div class="carousel-caption">
+                    <h5>Code-A-Thon 2026</h5>
+                    <p>The flagship 24-hour hackathon for Comp & IT students.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1200" class="d-block w-100" alt="Graduation">
+                <div class="carousel-caption">
+                    <h5>Alumni Meetup</h5>
+                    <p>Networking sessions with seniors from top tech giants.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+    <div class="row g-4 mb-5">
+        <div class="col-md-6">
+            <div class="card shadow-sm h-100">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600" class="card-img-top" alt="Cybersecurity">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold text-primary">Center of Excellence (AI/ML)</h5>
+                    <p class="card-text text-muted">A dedicated research lab for high-performance computing and neural network development.</p>
+                </div>
+                <div class="accordion accordion-flush border-top" id="accordionAlpha">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed py-2" type="button" data-bs-toggle="collapse" data-bs-target="#alphaSpecs">Research Areas</button>
+                        </h2>
+                        <div id="alphaSpecs" class="accordion-collapse collapse" data-bs-parent="#accordionAlpha">
+                            <div class="accordion-body small text-muted">NLP, Computer Vision, and Predictive Analytics for Agriculture.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-white d-flex justify-content-between align-items-center">
+                    <span class="badge bg-success rounded-pill">Active Lab</span>
+                    <button class="btn btn-sm btn-outline-primary">View Publications</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card shadow-sm h-100">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600" class="card-img-top" alt="Web Dev">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold text-primary">Student Project Portal</h5>
+                    <p class="card-text text-muted">Final year capstone project tracking and industry mentorship repository.</p>
+                </div>
+                <div class="accordion accordion-flush border-top" id="accordionBeta">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed py-2" type="button" data-bs-toggle="collapse" data-bs-target="#betaBudget">Submission Timeline</button>
+                        </h2>
+                        <div id="betaBudget" class="accordion-collapse collapse" data-bs-parent="#accordionBeta">
+                            <div class="accordion-body small text-muted">Next Review: March 15th, 2026. Final Presentation: May 2026.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-white d-flex justify-content-between align-items-center">
+                    <span class="badge bg-warning text-dark rounded-pill">Phase II</span>
+                    <button class="btn btn-sm btn-outline-primary">Submit Report</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="fw-bold mb-4">Official Student Chapters</h3>
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+        
+        <div class="col">
+            <div class="card shadow-sm h-100 text-center p-3">
+                <div class="logo-box">
+                    <img src="CSI.png" class="img-fluid" style="max-height: 100px;" alt="CSI">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">CSI Chapter</h5>
+                    <p class="small text-muted">Computer Society of India student branch focusing on technical excellence and workshops.</p>
+                    <a href="csiPortal.html" class="btn btn-dark btn-sm w-100">Visit Chapter</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card shadow-sm h-100 text-center p-3">
+                <div class="logo-box">
+                    <img src="IEEE-LOGO.webp" class="img-fluid" style="max-height: 80px;" alt="IEEE">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">IEEE Branch</h5>
+                    <p class="small text-muted">The world's largest professional organization for the advancement of technology.</p>
+                    <a href="#" class="btn btn-dark btn-sm w-100">Visit Chapter</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card shadow-sm h-100 text-center p-3">
+                <div class="logo-box">
+                    <img src="GDG.jpeg" class="img-fluid" style="max-height: 100px;" alt="GDG">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Google Dev Group (GDG)</h5>
+                    <p class="small text-muted">For students interested in Google developer technologies and community development.</p>
+                    <a href="#" class="btn btn-dark btn-sm w-100">Visit Chapter</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card shadow-sm h-100 text-center p-3">
+                <div class="logo-box">
+                    <img src="MSOC.jpeg" class="img-fluid" style="max-height: 100px;" alt="MSOC">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">MSOC</h5>
+                    <p class="small text-muted">MMCOE Student Open Community for collaborative learning and peer mentoring.</p>
+                    <a href="#" class="btn btn-dark btn-sm w-100">Visit Chapter</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card shadow-sm h-100 text-center p-3">
+                <div class="logo-box">
+                    <img src="AADHAR.jpeg" class="img-fluid" style="max-height: 100px;" alt="Aadhar">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Aadhar Club</h5>
+                    <p class="small text-muted">The social wing of the department, connecting technology with social welfare.</p>
+                    <a href="#" class="btn btn-dark btn-sm w-100">Visit Chapter</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card shadow-sm h-100 text-center p-3">
+                <div class="logo-box">
+                    <img src="ACES.jpg" class="img-fluid" style="max-height: 100px;" alt="ACES">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">ACES</h5>
+                    <p class="small text-muted">Association of Computer Engineering Students - The heartbeat of department events.</p>
+                    <a href="#" class="btn btn-dark btn-sm w-100">Visit Chapter</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card shadow-sm h-100 text-center p-3">
+                <div class="logo-box">
+                    <img src="code.jpeg" class="img-fluid" style="max-height: 100px;" alt="Code">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">CODE</h5>
+                    <p class="small text-muted">A cell dedicated to mastering Data Structures and Algorithms for top placements.</p>
+                    <a href="#" class="btn btn-dark btn-sm w-100">Visit Chapter</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer class="bg-dark text-white text-center py-4 mt-auto">
+    <div class="container">
+        <p class="mb-0 opacity-75">© 2026 MMCOE Computer Department Hub. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

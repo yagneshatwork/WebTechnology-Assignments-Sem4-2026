@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetable</title>
+
+    <style>
+        /* ===== Page Background ===== */
+        body {
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            background: linear-gradient(135deg, #003366, #0055a5);
+        }
+
+        /* ===== Table Card ===== */
+        table {
+            width: 95%;
+            margin: 25px auto;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        }
+
+        /* ===== Headings ===== */
+        h1 {
+            margin: 10px 0;
+            color: #003366;
+            letter-spacing: 1px;
+        }
+
+        h4 {
+            margin: 5px;
+            font-weight: 500;
+        }
+
+        /* ===== Cells ===== */
+        th, td {
+            border: 1px solid #dcdcdc;
+            padding: 10px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 0.9rem;
+        }
+
+        /* ===== Top header section ===== */
+        th {
+            background-color: #f4f7fb;
+            font-weight: 600;
+        }
+
+        /* ===== Time/Day row (red row improved) ===== */
+        .red-row {
+            background-color: #003366;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* ===== OE highlight ===== */
+        .yellow-cell {
+            background-color: #ffe066;
+            font-weight: bold;
+        }
+
+        /* ===== Break rows ===== */
+        td[colspan="7"] {
+            background-color: #eef3f9;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #003366;
+        }
+
+        /* ===== Hover effect for readability ===== */
+        tr:hover td {
+            background-color: #f8fbff;
+        }
+
+        /* ===== Logo alignment ===== */
+        img {
+            padding: 5px;
+        }
+
+        /* ===== Responsive scroll on small screens ===== */
+        @media (max-width: 900px) {
+            table {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+<table>
+    <tr>
+        <th style="width:120px;">
+            <a href="Home Page.html">
+                <img src="mmcoelogo.png" width="110" alt="Logo">
+            </a>
+        </th>
+        <th colspan="7">
+            <h4>Marathwada Mitra Mandal's<br>
+                COLLEGE OF ENGINEERING, Karvenagar Pune-411052<br>
+                An Autonomous Institute affiliated to SPPU<br>
+                Website: www.mmcoe.edu.in | email id: mmcoe@mmcoe.edu.in</h4>
+        </th>
+    </tr>
+
+    <tr><th colspan="8"><h1>Class Time Table</h1></th></tr>
+
+    <tr>
+        <th colspan="3">Academic Year : 2025-26</th>
+        <th colspan="2">Semester : II</th>
+        <th colspan="3">Class : SY BTech I</th>
+    </tr>
+
+    <tr>
+        <th colspan="3">Department : Comp.Engg</th>
+        <th colspan="2">Room No : AC303</th>
+        <th colspan="3">W.E.F : 2/1/2026</th>
+    </tr>
+
+    <tr class="red-row">
+        <td>Time \ Date</td>
+        <td>Monday</td>
+        <td>Tuesday</td>
+        <td>Wednesday</td>
+        <td>Thursday</td>
+        <td>Friday</td>
+        <td>Saturday</td>
+    </tr>
+
+    <tr>
+        <td>8.00am – 9.00am</td>
+        <td rowspan="2">A: WT- (VSR) 504<br>B: PPL (SOS) -501<br>C: PCPD(MK)-508(1)</td>
+        <td rowspan="2">A: PCPD(MK) 507(2)<br>B: DBMS(KBS) -508(1)<br>C: PPL(SPM) -501</td>
+        <td rowspan="2">A: DBMS(KBS)-508(1)<br>B: PCPD(MK) 507(2)<br>C: PPL (SPM)-501</td>
+        <td>PPL(SPM) AC303</td>
+        <td>SE(VSR) -AC 303</td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>9.00am – 10.00am</td>
+        <td>SE(VSR) AC303</td>
+        <td>DBMS(KBS) -AC 303</td>
+        <td>Guest Lecture</td>
+    </tr>
+
+    <tr>
+        <td>10.00 am- 10.30 am</td>
+        <td colspan="7">SHORT BREAK</td>
+    </tr>
+
+    <tr>
+        <td>10.30am – 11:30am</td>
+        <td>OSW(SSS) AC303</td>
+        <td rowspan="2">A: DBMS(KBS)-508(1)<br>B: WT(VSR)-507(1)<br>C: OSW(SSS)-507(2)</td>
+        <td rowspan="2">A: WT -(VSR) 504<br>B: PPL(SOS)-501<br>C: WT(SKP)-507(1)</td>
+        <td rowspan="2">A: PPL(SPM)-501<br>B: WT(VSR)-507(1)<br>C: DBMS(KBS) -508(1)</td>
+        <td rowspan="2">A: OSW(SSS)-507(2)<br>B: DBMS(KBS)-508(1)<br>C: WT(SKP)-507(1)</td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>11:30am-12.30pm</td>
+        <td>DBMS(KBS) AC303</td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>10.00 am- 10.30 am</td>
+        <td colspan="7">LUNCH BREAK</td>
+    </tr>
+
+    <tr>
+        <td>1.15pm – 2.15pm</td>
+        <td rowspan="2">A: PPL(SPM) -501<br>B: OSW(SSS)-507(2)<br>C: DBMS(KBS)-508(1)</td>
+        <td>SE(VSR) AC303</td>
+        <td>PPL(SPM) AC303</td>
+        <td class="yellow-cell">OE</td>
+        <td>Coding Session AC303</td>
+        <td>TG Meeting</td>
+    </tr>
+
+    <tr>
+        <td>2.15 pm- 3.15 pm</td>
+        <td>PPL(SPM) AC303</td>
+        <td>DBMS(KBS) AC303</td>
+        <td class="yellow-cell">OE</td>
+        <td class="yellow-cell">OE</td>
+        <td></td>
+    </tr>
+</table>
+
+</body>
+</html>

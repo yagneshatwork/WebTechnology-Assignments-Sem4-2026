@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Performance Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --glass: rgba(255, 255, 255, 0.95);
+            --primary: #4f46e5; /* Modern Indigo */
+            --secondary: #1e293b; /* Slate 800 */
+            --accent: #10b981; /* Emerald */
+            --bg: #f1f5f9;
+            --text-main: #334155;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            background-image: radial-gradient(circle at 10% 20%, rgba(79, 70, 229, 0.05) 0%, transparent 40%),
+            radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 40%);
+            color: var(--text-main);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 420px 1fr;
+            gap: 30px;
+            width: 100%;
+            max-width: 1400px;
+            padding: 40px;
+        }
+
+        /* --- LEFT COLUMN: INPUT & RANKING --- */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-top: 0;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        /* Form Aesthetics */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .full-width { grid-column: span 2; }
+
+        label { font-size: 0.8rem; font-weight: 600; color: #64748b; margin-bottom: 6px; display: block; }
+
+        input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        button {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+            margin-top: 10px;
+        }
+
+        button:hover { background: #4338ca; transform: translateY(-1px); }
+
+        /* Ranking Table Styling */
+        .rank-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        .rank-table th { text-align: left; color: #94a3b8; font-weight: 600; padding-bottom: 12px; }
+        .rank-table td { padding: 12px 0; border-top: 1px solid #f1f5f9; }
+        .rank-badge {
+            background: #f1f5f9;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: 700;
+        }
+        .top-performer { color: var(--primary); font-weight: 700; }
+
+        /* --- RIGHT COLUMN: THE CERTIFICATE --- */
+        .cert-view {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .official-cert {
+            width: 100%;
+            max-width: 800px;
+            background: white;
+            padding: 60px;
+            border-radius: 4px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            position: relative;
+            border: 1px solid #e2e8f0;
+            display: none; /* Shown after input */
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Certificate Border */
+        .official-cert::before {
+            content: '';
+            position: absolute;
+            top: 20px; bottom: 20px; left: 20px; right: 20px;
+            border: 2px solid #e2e8f0;
+            pointer-events: none;
+        }
+
+        .cert-header { text-align: center; margin-bottom: 40px; }
+        .cert-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin: 0;
+            color: var(--secondary);
+            letter-spacing: 1px;
+        }
+        .cert-header p { text-transform: uppercase; letter-spacing: 3px; color: #94a3b8; font-size: 0.8rem; margin-top: 10px;}
+
+        .student-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            padding: 0 10px;
+            font-size: 1.1rem;
+        }
+
+        .marksheet {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        .marksheet th { background: #f8fafc; padding: 15px; border: 1px solid #e2e8f0; text-transform: uppercase; font-size: 0.75rem; color: #64748b; }
+        .marksheet td { padding: 15px; border: 1px solid #e2e8f0; text-align: center; font-weight: 500; }
+
+        .grade-pill {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            background: #ecfdf5;
+            color: #059669;
+        }
+
+        .summary-banner {
+            background: var(--secondary);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-around;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .summary-item span { display: block; font-size: 0.7rem; text-transform: uppercase; opacity: 0.7; margin-bottom: 5px; }
+        .summary-item b { font-size: 1.4rem; }
+
+        .placeholder-box {
+            height: 600px;
+            width: 100%;
+            border: 3px dashed #cbd5e1;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dashboard">
+
+    <div class="sidebar">
+        <div class="glass-card">
+            <h2>Enroll Student</h2>
+            <form id="masterForm">
+                <div class="form-grid">
+                    <div class="full-width">
+                        <label>Student Full Name</label>
+                        <input type="text" id="name" placeholder="Ex: Abc Pqr" required>
+                    </div>
+                    <div class="full-width">
+                        <label>Class/Section</label>
+                        <input type="text" id="class" placeholder="Ex: SY 1" required>
+                    </div>
+                    <div><label>DS</label><input type="number" id="s1" min="0" max="100" required></div>
+                    <div><label>OOP</label><input type="number" id="s2" min="0" max="100" required></div>
+                    <div><label>DBMS</label><input type="number" id="s3" min="0" max="100" required></div>
+                    <div><label>WT</label><input type="number" id="s4" min="0" max="100" required></div>
+                    <div><label>PPL</label><input type="number" id="s5" min="0" max="100" required></div>
+                </div>
+                <button type="submit">Generate Certificate</button>
+            </form>
+        </div>
+
+        <div class="glass-card">
+            <h2>Ranking</h2>
+            <table class="rank-table" id="leaderboard">
+                <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Student</th>
+                    <th>Avg%</th>
+                </tr>
+                </thead>
+                <tbody id="rankBody">
+                <tr><td colspan="3" style="text-align:center; color:#cbd5e1; padding-top:20px;">No records yet</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="cert-view">
+        <div id="placeholder" class="placeholder-box">
+            Enter details to view the generated Marksheet
+        </div>
+
+        <div class="official-cert" id="certificate">
+            <div class="cert-header">
+                <p>Official Transcript</p>
+                <h1>Statement of Marks</h1>
+            </div>
+
+            <div class="student-meta">
+                <div>NAME: <b id="outName" style="color: var(--primary);">---</b></div>
+                <div>CLASS: <b id="outClass">---</b></div>
+            </div>
+
+            <table class="marksheet">
+                <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Max</th>
+                    <th>Obtained</th>
+                    <th>Grade</th>
+                </tr>
+                </thead>
+                <tbody id="certTableBody">
+                </tbody>
+            </table>
+
+            <div class="summary-banner">
+                <div class="summary-item"><span>Total Percentage</span><b id="outAvg">0%</b></div>
+                <div class="summary-item"><span>Final Grade</span><b id="outGrade">-</b></div>
+                <div class="summary-item"><span>Status</span><b id="outStatus" style="color: var(--accent);">PASS</b></div>
+            </div>
+
+            <div style="margin-top: 50px; display: flex; justify-content: space-between; align-items: flex-end;">
+                <div style="font-size: 0.8rem; color: #94a3b8;">Issued on: <span id="issueDate"></span></div>
+                <div style="text-align: center;">
+                    <div style="font-family: 'Playfair Display', serif; font-size: 1.2rem;">Director General</div>
+                    <div style="width: 150px; border-top: 1px solid #333; margin-top: 5px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const students = [];
+    const subjects = ["DS", "OOP", "DBMS", "WT", "PPL"];
+
+    function getGrade(m) {
+        if (m >= 90) return 'A+';
+        if (m >= 80) return 'A';
+        if (m >= 70) return 'B';
+        if (m >= 60) return 'C';
+        if (m >= 50) return 'D';
+        return 'F';
+    }
+
+    document.getElementById('masterForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const cls = document.getElementById('class').value;
+        const marks = [
+            +document.getElementById('s1').value,
+            +document.getElementById('s2').value,
+            +document.getElementById('s3').value,
+            +document.getElementById('s4').value,
+            +document.getElementById('s5').value
+        ];
+
+        const avg = marks.reduce((a, b) => a + b, 0) / 5;
+        const finalGrade = getGrade(avg);
+
+        // Update UI
+        document.getElementById('placeholder').style.display = 'none';
+        document.getElementById('certificate').style.display = 'block';
+
+        document.getElementById('outName').innerText = name.toUpperCase();
+        document.getElementById('outClass').innerText = cls;
+        document.getElementById('outAvg').innerText = avg.toFixed(1) + "%";
+        document.getElementById('outGrade').innerText = finalGrade;
+        document.getElementById('issueDate').innerText = new Date().toLocaleDateString();
+
+        let tableContent = "";
+        marks.forEach((m, i) => {
+            tableContent += `<tr>
+                <td style="text-align:left">${subjects[i]}</td>
+                <td>100</td>
+                <td>${m}</td>
+                <td><span class="grade-pill">${getGrade(m)}</span></td>
+            </tr>`;
+        });
+        document.getElementById('certTableBody').innerHTML = tableContent;
+
+        // Leaderboard Logic
+        students.push({ name, avg, grade: finalGrade });
+        students.sort((a, b) => b.avg - a.avg);
+
+        const rankBody = document.getElementById('rankBody');
+        rankBody.innerHTML = students.map((s, i) => `
+            <tr class="${i === 0 ? 'top-performer' : ''}">
+                <td><span class="rank-badge">${i + 1}</span></td>
+                <td>${s.name}</td>
+                <td>${s.avg.toFixed(1)}%</td>
+            </tr>
+        `).join('');
+
+        this.reset();
+    });
+</script>
+
+</body>
+</html>
